@@ -11,7 +11,7 @@ namespace SOS.Core.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public Vehicle Vehicle { get; set; }
-        public IEnumerable<TeamMember> Members { get; set; }
+        public IEnumerable<TeamMember>? Members { get; set; }
         public CoordinatesSpan TeamArea { get; set; }
     }
 }

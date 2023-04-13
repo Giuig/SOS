@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SOS.Infrastructure.Database;
 
@@ -11,9 +12,10 @@ using SOS.Infrastructure.Database;
 namespace SOS.Infrastructure.Migrations
 {
     [DbContext(typeof(SOSContext))]
-    partial class SOSContextModelSnapshot : ModelSnapshot
+    [Migration("20230413154854_AddedNullableToNavProps")]
+    partial class AddedNullableToNavProps
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
