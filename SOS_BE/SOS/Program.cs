@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SOS.Infrastructure.Database;
+using AutoMapper;
+using SOS.Mapper;
+using SOS.Infrastructure.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -9,15 +12,24 @@ ConfigurationManager configuration = builder.Configuration;
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<SOSContext>(builder =>
                 builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 {
     builder.WithOrigins("http://localhost:4200")
            .AllowAnyMethod()
            .AllowAnyHeader();
 }));
+
+builder.Services.AddAutoMapper(cfg => cfg.AddProfiles(new List<Profile>()
+            {
+                new UIProfile(),
+                new InfrastructureProfile()
+            }));
 
 var app = builder.Build();
 
