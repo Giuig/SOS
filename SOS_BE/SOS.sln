@@ -3,11 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOS", "SOS\SOS.csproj", "{EDA52A23-EB07-4FD4-A0DA-CBDCA6856599}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOS", "SOS\SOS.csproj", "{EDA52A23-EB07-4FD4-A0DA-CBDCA6856599}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A6B62D04-2A29-4DC3-8AEC-CE7BC963C151} = {A6B62D04-2A29-4DC3-8AEC-CE7BC963C151}
+		{E4BE79F8-69F6-4781-943C-802E8BBF39DD} = {E4BE79F8-69F6-4781-943C-802E8BBF39DD}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOS.Core", "SOS.Core\SOS.Core.csproj", "{A6B62D04-2A29-4DC3-8AEC-CE7BC963C151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOS.Core", "SOS.Core\SOS.Core.csproj", "{A6B62D04-2A29-4DC3-8AEC-CE7BC963C151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOS.Infrastructure", "SOS.Infrastructure\SOS.Infrastructure.csproj", "{E4BE79F8-69F6-4781-943C-802E8BBF39DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOS.Infrastructure", "SOS.Infrastructure\SOS.Infrastructure.csproj", "{E4BE79F8-69F6-4781-943C-802E8BBF39DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A6B62D04-2A29-4DC3-8AEC-CE7BC963C151} = {A6B62D04-2A29-4DC3-8AEC-CE7BC963C151}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
