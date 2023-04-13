@@ -12,8 +12,8 @@ using SOS.Infrastructure.Database;
 namespace SOS.Infrastructure.Migrations
 {
     [DbContext(typeof(SOSContext))]
-    [Migration("20230413135253_initial_migration")]
-    partial class initial_migration
+    [Migration("20230413135253_Initial_migration")]
+    partial class Initial_migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

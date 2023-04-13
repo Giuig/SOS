@@ -3,6 +3,8 @@ using SOS.Infrastructure.Database;
 using AutoMapper;
 using SOS.Mapper;
 using SOS.Infrastructure.Mapper;
+using SOS.Infrastructure.Interfaces;
+using SOS.Infrastructure.DAO;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -14,6 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ITeamMemberDAO, TeamMemberDAO>();
 
 builder.Services.AddDbContext<SOSContext>(builder =>
                 builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
