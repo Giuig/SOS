@@ -18,6 +18,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ITeamMemberDAO, TeamMemberDAO>();
+builder.Services.AddScoped<ITeamDAO, TeamDAO>();
+builder.Services.AddScoped<IMissionDAO, MissionDAO>();
 
 builder.Services.AddDbContext<SOSContext>(builder =>
                 builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
