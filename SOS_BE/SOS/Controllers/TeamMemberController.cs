@@ -25,11 +25,11 @@ namespace SOS.Controllers
         }
 
         [HttpPost]
-        public Task<IActionResult> Post(CreateTeamMemberModel teamMemberModel)
+        public async Task<IActionResult> Post(CreateTeamMemberModel teamMemberModel)
         {
             var teamMember = _mapper.Map<TeamMember>(teamMemberModel);
             var teamMemberDTO = _mapper.Map<TeamMemberDTO>(teamMember);
-            _teamMemberDAO.Create(teamMemberDTO);
+            await _teamMemberDAO.Create(teamMemberDTO);
             return Created("", teamMemberDTO);
         }
 
