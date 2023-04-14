@@ -8,7 +8,7 @@ namespace SOS.Core.Interfaces
 {
     public interface ICreate<T> where T : class
     {
-        public void Create(T dto);
+        public Task Create(T dto);
 
     }
 }

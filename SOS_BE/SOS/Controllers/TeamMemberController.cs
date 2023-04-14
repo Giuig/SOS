@@ -4,6 +4,7 @@ using SOS.Core.Domain;
 using SOS.Infrastructure.DTO;
 using SOS.Infrastructure.Interfaces;
 using SOS.Model;
+using SOS.Model.RequestModels;
 
 namespace SOS.Controllers
 {
@@ -24,12 +25,12 @@ namespace SOS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(TeamMemberModel teamMemberModel)
+        public Task<IActionResult> Post(CreateTeamMemberModel teamMemberModel)
         {
             var teamMember = _mapper.Map<TeamMember>(teamMemberModel);
             var teamMemberDTO = _mapper.Map<TeamMemberDTO>(teamMember);
             _teamMemberDAO.Create(teamMemberDTO);
-            return Ok();
+            return Created("", teamMemberDTO);
         }
 
     }

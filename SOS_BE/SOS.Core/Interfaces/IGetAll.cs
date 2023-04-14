@@ -8,7 +8,7 @@ namespace SOS.Core.Interfaces
 {
     public interface IGetAll<T> where T : class
     {
-        public IEnumerable<T> GetAll();
+        public Task<IEnumerable<T>> GetAll();
 
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SOS.Infrastructure.Interfaces
 {
-    public interface ITeamDAO : ICreate<TeamDTO>
+    public interface ITeamDAO : ICreate<TeamDTO>, IGetById<TeamDTO>, IGetAll<TeamDTO>, IUpdate<TeamDTO>
     {
     }
 }

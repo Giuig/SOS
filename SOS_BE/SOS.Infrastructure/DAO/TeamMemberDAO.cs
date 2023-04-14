@@ -17,10 +17,25 @@ namespace SOS.Infrastructure.DAO
         { 
             _ctx = ctx;
         }
-        public void Create(TeamMemberDTO dto)
+        public async Task Create(TeamMemberDTO dto)
         {
             _ctx.TeamMember.Add(dto);
-            _ctx.SaveChanges();
+            await _ctx.SaveChangesAsync();
+        }
+
+        public Task<IEnumerable<TeamMemberDTO>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TeamMemberDTO> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(int id, TeamMemberDTO entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SOS.Core.Domain;
+using SOS.Infrastructure.DAO;
 using SOS.Infrastructure.DTO;
 using SOS.Infrastructure.Interfaces;
 using SOS.Model;
@@ -25,12 +26,12 @@ namespace SOS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(CreateTeamModel teamModel)
+        public async Task<IActionResult> Post(CreateTeamModel teamModel)
         {
             var team = _mapper.Map<Team>(teamModel);
             var teamDTO = _mapper.Map<TeamDTO>(team);
-            _teamDAO.Create(teamDTO);
-            return Ok();
+            await _teamDAO.Create(teamDTO);
+            return Created("", teamDTO);
         }
     }
 }

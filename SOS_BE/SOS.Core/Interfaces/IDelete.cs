@@ -8,6 +8,6 @@ namespace SOS.Core.Interfaces
 {
     public interface IDelete<T> where T : class
     {
-        public void Delete(int id);
+        public Task Delete(int id);
     }
 }

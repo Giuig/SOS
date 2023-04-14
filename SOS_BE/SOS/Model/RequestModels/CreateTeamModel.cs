@@ -5,7 +5,7 @@ namespace SOS.Model.RequestModels
     public class CreateTeamModel
     {
         public string Name { get; set; }
-        public Vehicle Vehicle { get; set; }
-        public CoordinatesSpan TeamArea { get; set; }
+        public CreateVehicle Vehicle { get; set; }
+        public CreateCoordinatesSpan TeamArea { get; set; }
     }
 }

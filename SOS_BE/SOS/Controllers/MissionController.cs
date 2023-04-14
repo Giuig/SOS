@@ -25,12 +25,12 @@ namespace SOS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(CreateMissionModel missionModel)
+        public async Task<IActionResult> Post(CreateMissionModel missionModel)
         {
             var mission = _mapper.Map<Mission>(missionModel);
             var missionDTO = _mapper.Map<MissionDTO>(mission);
-            _missionDAO.Create(missionDTO);
-            return Ok();
+            await _missionDAO.Create(missionDTO);
+            return Created("", missionDTO);
         }
     }
 }

@@ -8,6 +8,6 @@ namespace SOS.Core.Interfaces
 {
     public interface IUpdate<T> where T : class
     {
-        void Update(int id, T entity);
+        Task Update(int id, T entity);
     }
 }
