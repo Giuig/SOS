@@ -16,6 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOS.Infrastructure", "SOS.I
 		{A6B62D04-2A29-4DC3-8AEC-CE7BC963C151} = {A6B62D04-2A29-4DC3-8AEC-CE7BC963C151}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOS.Tests", "SOS.Tests\SOS.Tests.csproj", "{CF1FBE6E-977B-4912-8AE1-17E864736917}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A6B62D04-2A29-4DC3-8AEC-CE7BC963C151} = {A6B62D04-2A29-4DC3-8AEC-CE7BC963C151}
+		{E4BE79F8-69F6-4781-943C-802E8BBF39DD} = {E4BE79F8-69F6-4781-943C-802E8BBF39DD}
+		{EDA52A23-EB07-4FD4-A0DA-CBDCA6856599} = {EDA52A23-EB07-4FD4-A0DA-CBDCA6856599}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +41,10 @@ Global
 		{E4BE79F8-69F6-4781-943C-802E8BBF39DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4BE79F8-69F6-4781-943C-802E8BBF39DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4BE79F8-69F6-4781-943C-802E8BBF39DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF1FBE6E-977B-4912-8AE1-17E864736917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF1FBE6E-977B-4912-8AE1-17E864736917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF1FBE6E-977B-4912-8AE1-17E864736917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF1FBE6E-977B-4912-8AE1-17E864736917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
