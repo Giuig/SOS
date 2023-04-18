@@ -12,26 +12,32 @@ using DotNet.Testcontainers.Containers;
 using DotNet.Testcontainers.Configurations;
 using System.Net.Http.Json;
 using Docker.DotNet.Models;
+using Testcontainers.PostgreSql;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
+using Newtonsoft.Json.Linq;
+using System.Configuration;
 
 namespace SOS.Tests
 {
     public class TeamMemberControllerIntegrationTests : IClassFixture<IntegrationTestFactory<Program, SOSContext>>
     {
         private readonly IntegrationTestFactory<Program, SOSContext> _factory;
-
         public TeamMemberControllerIntegrationTests(IntegrationTestFactory<Program, SOSContext> factory) => _factory = factory;
 
         [Fact]
         public async Task Create_ShouldCreateNewTeamMember()
         {
+
             var client = _factory.CreateClient();
 
             var myObject = new CreateTeamMemberModel
             {
                 Name = "Test",
                 Surname = "Test",
-                BirthDate = DateTime.Now,
+                BirthDate = DateTime.Now.ToUniversalTime(),
             };
+
             var content = new StringContent(JsonConvert.SerializeObject(myObject), Encoding.UTF8, "application/json");
             var response = await client.PostAsync("/TeamMember", content);
             response.EnsureSuccessStatusCode();
@@ -42,7 +48,7 @@ namespace SOS.Tests
             Assert.NotNull(result);
             Assert.Equal(myObject.Name, result.Name);
             Assert.Equal(myObject.Surname, result.Surname);
-            Assert.Equal(myObject.BirthDate, result.BirthDate);
+            Assert.Equal(myObject.BirthDate.ToUniversalTime(), result.BirthDate.ToUniversalTime());
 
             dbContext.Database.EnsureDeleted();
         }
