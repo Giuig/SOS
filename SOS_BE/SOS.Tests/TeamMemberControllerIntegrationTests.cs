@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
+using FluentAssertions;
 
 namespace SOS.Tests
 {
@@ -45,10 +46,10 @@ namespace SOS.Tests
             using var scope = _factory.Services.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<SOSContext>();
             var result = await dbContext.TeamMember.SingleAsync(o => o.Id == 1);
-            Assert.NotNull(result);
-            Assert.Equal(myObject.Name, result.Name);
-            Assert.Equal(myObject.Surname, result.Surname);
-            Assert.Equal(myObject.BirthDate.Date, result.BirthDate.Date);
+            result.Should().NotBeNull();
+            result.Name.Should().BeEquivalentTo(myObject.Name);
+            result.Surname.Should().BeEquivalentTo(myObject.Surname);
+            result.BirthDate.Date.Should().BeSameDateAs(myObject.BirthDate.Date);
         }
     }
 }
