@@ -19,9 +19,19 @@ namespace SOS.Infrastructure.DAO
         }
         public async Task Create(TeamMemberDTO dto)
         {
-            _ctx.TeamMember.Add(dto);
-            await _ctx.SaveChangesAsync();
+            try
+            {
+                _ctx.TeamMember.Add(dto);
+                await _ctx.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                Console.WriteLine($"Exception occurred while creating Team Member: {ex.Message}");
+                throw; // rethrow the exception
+            }
         }
+
 
         public Task<IEnumerable<TeamMemberDTO>> GetAll()
         {

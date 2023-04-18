@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -21,8 +20,12 @@ builder.Services.AddScoped<ITeamMemberDAO, TeamMemberDAO>();
 builder.Services.AddScoped<ITeamDAO, TeamDAO>();
 builder.Services.AddScoped<IMissionDAO, MissionDAO>();
 
+
+   // builder.Services.AddDbContext<SOSContext>(builder =>
+   // builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddDbContext<SOSContext>(builder =>
-                builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+    builder.UseNpgsql(configuration.GetConnectionString("TestConnection")));
 
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 {
@@ -53,3 +56,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }
