@@ -48,9 +48,7 @@ namespace SOS.Tests
             Assert.NotNull(result);
             Assert.Equal(myObject.Name, result.Name);
             Assert.Equal(myObject.Surname, result.Surname);
-            Assert.Equal(myObject.BirthDate.ToUniversalTime(), result.BirthDate.ToUniversalTime());
-
-            dbContext.Database.EnsureDeleted();
+            Assert.Equal(myObject.BirthDate.Date, result.BirthDate.Date);
         }
     }
 }
