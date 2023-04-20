@@ -25,7 +25,7 @@ builder.Services.AddScoped<IMissionDAO, MissionDAO>();
    // builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddDbContext<SOSContext>(builder =>
-    builder.UseNpgsql(configuration.GetConnectionString("TestConnection")));
+    builder.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 {
